@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/cerveja.png">
+    <title>Adicionar Produto</title>
+</head>
+<body>
+    <div>
+        <h1>SEU ZÉ FINEST DRINKS</h1>
+    </div>
+    
+    <div>
+        <a href="index.html"class="botao">Página Inicial</a>
+        <a href="ctrl-estoque.html"class="botao">Controle de Estoque</a>
+        <a href="add-produto.html"class="botao">Adicionar Produto</a>
+        <a href="funcionarios.html"class="botao">Funcionários</a>
+        <a href="pagina-de-vendas.html" class="botao">Pagina de vendas</a>
+        <a href="historico-de-vendas.html" class="botao">Historico de vendas</a>
+    </div>
+
+    
+    <h2>Adicionar Produto</h2>
+    <form action="ctrl-estoque.html">
+        <div>
+            <label for="link-foto">Link para foto: </label>
+            <input type="url" id="link-foto" class="botao" name="link-foto">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="descricao">Descrição do produto: </label>
+            <!-- Adicione o id apropriado para o input abaixo -->
+            <input type="text" id="descricao-do-produto" class="botao" name="descrição">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="preco">Preço (em R$): </label>
+            <!-- Adicione o id apropriado e o type para receber números abaixo -->
+            <input type="text" id="preco-do-produto" class="botao" name="preço">
+        </div>
+
+        <br>
+
+        <div>
+            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+            <label>Quantidade disponível: </label>
+            <input type="text" id="quantidade-disponivel"class="botao" name="quantidade">
+        </div>
+
+        <br>
+
+        <div class="form-add">
+            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+            <button type="submit" class="botao">Adicionar</button>
+        </div>
+
+    </form>
+    <footer>
+        <div>
+            <img src="/img/gps.png" alt="icone de gps" height="40" width="40"/>
+            <p>Rua dos Alfeneiros, nº4<br>776-2323 </p>
+        </div><br>
+        <div>
+            <p>Siga-nos nas redes sociais!</p>
+            <img src="https://image.flaticon.com/icons/png/512/25/25305.png" alt="icone do facebook"class="botao" height="40" width="40"/>
+            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"alt= "icone do instagram" class="botao" height="40" width="40"/>
+            <img src="https://image.flaticon.com/icons/png/512/8/8800.png" alt="icone do twitter" class="botao" height="40" width="40"/>
+        </div>
+
+    </footer>
+</body>
+</html>
