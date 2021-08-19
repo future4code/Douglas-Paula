@@ -1,0 +1,49 @@
+body{
+    font-family:'Lucida Console', monospace;
+    background-color: cornflowerblue;
+}
+.botao {
+    color: #4aca7f;
+    background-color: cornflowerblue;
+    border-color: #4aca7f;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+  }
+  
+  .botao:hover,
+  .botao:active,
+  .botao:focus,
+  .botao.active {
+    background: #4aca7f;
+    color: #ffffff;
+    border-color: #4aca7f;
+}
+div{
+    text-align: center
+}
+h2{
+    text-align: center
+}
+tr{
+    text-align: center
+}
+.center {
+    display: block;
+    margin: 0 auto;
+}
+table{
+    margin:auto;
+}
+ul {
+    width: 10%;
+    margin: auto;
+
+}
+
+a {
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    border: 3px solid #000;
+}
