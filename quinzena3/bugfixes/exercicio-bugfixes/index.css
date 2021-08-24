@@ -129,7 +129,13 @@ td button {
     height: 100px;
 }
 
+#buy-button:active{
+    background-color: white;
+}
 
+#buy-button:hover{
+    background-color: #e0c757;
+}
 #back-button {
     background-color: white;
     width: 100px;
