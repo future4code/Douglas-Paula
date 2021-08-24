@@ -103,7 +103,9 @@ div img:active{
     padding: 100px 0;
     font-size: 60px;
 }
-
+#decimal{
+    flex-grow: inherit;
+}
 
 /**
   *
