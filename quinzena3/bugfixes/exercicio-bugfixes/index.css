@@ -26,7 +26,7 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width:100px;
 }
 
 div>p:first-child {
@@ -109,7 +109,10 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 35cm;
+    text-align: center;
+	margin-left: 7cm;
+    margin-right: 5cm;
 }
 
 td button {
