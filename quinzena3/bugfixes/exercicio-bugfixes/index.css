@@ -128,6 +128,12 @@ td button {
     margin-top: 20px;
     height: 100px;
 }
+.no-border{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: solid;
+}
 
 #buy-button:active{
     background-color: white;
