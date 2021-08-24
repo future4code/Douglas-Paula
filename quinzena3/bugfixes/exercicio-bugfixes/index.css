@@ -54,9 +54,17 @@ div img {
 .container {
     height: 500px;
     text-align: center;
-    padding-top: 2cm;
+    padding-top: 2cm;	
 }
-
+.comeco{
+    text-align: center;
+}
+.meio{
+    text-align: center;
+}
+.fim{
+    text-align: center;
+}
 .icone {
     height: 15px;
 }
