@@ -38,6 +38,12 @@ div img {
     background: rgb(255, 255, 255);
     width:20px;
 }
+div img:hover{
+    opacity: 0.5;
+}
+div img:active{
+    opacity:1.0;
+}
 
 .botao-amarelo {
     background-color: #ffaf43;
