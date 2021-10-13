@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "3675b5f7-8da0-4d93-9d1a-90a3e1444919",
+		"name": "Aula 25",
+		"description": "## Descrição\n</br>Esta API gerencia playlists e músicas.\n```\n\tFeito pela Labenu. Todos os direitos reservados\n```\n\n## Instruções gerais.\n\n**Autenticação**\n\nToda requisição deve ter uma identificação de quem está fazendo a requisição. Ela deve ser enviada por meio do header `Authorization`, da seguinte forma:\n\n`Authorization: \"nome-sobrenome-turma\"`\n\nPor exemplo, se meu nome é Bob Marley e eu sou da turma Newton, o header deve ser:\n\n`Authorization: \"bob-marley-newton\"`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllPlaylists",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Douglas-Rodrigues-Banu",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					]
+				},
+				"description": "### Descrição:\nEsta requisição serve para ver o `id` e o `name` de todas as suas playlists.\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n### Output:\n**Body**\n<br/>`quantity`: quantitdade de playlists\n<br/>`list`: lista com as playlists\n<br/> `id`: id de cada playlist\n<br/> `name`: nome de cada playlist\n\n```\n{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"list\": [\n            {\n                \"id\": \"string\",\n                \"name\": \"string\"\n            }\n        ]\n    }\n}\n```\n"
+			},
+			"response": []
+		},
+		{
+			"name": "searchPlaylist",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Douglas-Rodrigues-Banu"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=Housera pra dormir tranquilo&",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Housera pra dormir tranquilo"
+						},
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				},
+				"description": "### Descrição:\nEssa requisição parmite pesquisar por uma playlist, usando o nome dela ou parte dele.\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n\n**Query String**\n<br/> `name`: nome da playlist ou parte dele (obrigatório)\n```\n\tname:\"string\" \n```\n\n### Output:\n**Body**\n<br/> `quantity`: quantidade de playlists encontradas\n<br/> `list`: array com as playlists\n<br/> `id`: id de cada playlist\n<br/> `name`: nome de cada playlist\n```\n{\n    \"result\": {\n    \t\"quantity\": \"number\", \n        \"list\": [\n            {\n                \"id\": \"string\", \n                \"name\": \"string\" \n            }\n        ]\n    }\n}\n```\n\n\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "getPlaylistTracks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Douglas-Rodrigues-Banu"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "db8899e8-f4c2-47bf-aaaf-e7f3228a97c4"
+						}
+					]
+				},
+				"description": "### Descrição:\nEsta requisição permite verificar quais músicas estão em uma determinada playlist\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n\n**Path Param**\n<br/>`playlistId`: id da playlist (obrigatório)\n\n### Output:\n**Body**\n<br/> `quantity`: quantidade de músicas da playlist\n<br/> `tracks`: array com as informações das músicas\n<br/> `id`: id de cada música\n<br/> `name`: nome de cada música\n<br/> `artist`: cantor ou band da música\n<br/>`url`: URL da música para ser tocada\n```\n{\n    \"result\": {\n        \"quantity\": \"number\",\n        \"tracks\": [ \n            {\n                \"id\": \"string\", \n                \"name\": \"string\", \n                \"artist\": \"string\",\n                \"url\": \"string\"\n            }\n        ]\n    }\n}\n```\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "createPlaylist",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Douglas-Rodrigues-Banu",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Indie para bater cabeça\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "### Descrição:\nEssa requisição cria uma nova playlist. \n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n**Body**\n<br/>`name`: nome da playlist (obrigatório)\n```\n{\n\t\"name\": \"string\" \n}\n```"
+			},
+			"response": [
+				{
+					"name": "createPlaylist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth",
+								"value": "authentication-token",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+							"protocol": "https",
+							"host": [
+								"us-central1-labenu-apis",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"labefy",
+								"playlists"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "addTrackToPlaylist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Douglas-Rodrigues-Banu"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Boiler Room Tulum\",\n\t\"artist\": \"Solomun\",\n\t\"url\": \"https://www.youtube.com/watch?v=l61IPBnKw9Q\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "bb74c199-3f0c-4bf0-b1f1-2bb031d4d133"
+						}
+					]
+				},
+				"description": "### Descrição:\nEssa requisição adiciona uma música a uma playlist existente\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n\n**Path Param**\n<br/>`playlistId`: id da playlist (obrigatório)\n\n**Body**\n<br/>`name`: nome da música (obrigatório)\n<br/>`artist`: cantor ou banda da música (obrigatório)\n<br/>`url`: URL da música para ser tocada (obrigatório)\n```\n{\n\t\"name\": \"string\", \n\t\"artist\": \"string\",\n\t\"url\": \"string\"\n}\n```\n\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "deletePlaylist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Douglas-Rodrigues-Banu"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "8c87303c-7bae-4133-a831-ec5b1ea532d4"
+						}
+					]
+				},
+				"description": "### Descrição:\nEsta requisição serve para deletar alguma playlist.\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n\n**Path Param**\n<br/>`playlistId`: id da playlist (obrigatório)\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "removeTrackFromPlaylist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Douglas-Rodrigues-Banu"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId",
+					"protocol": "https",
+					"host": [
+						"us-central1-labenu-apis",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"labefy",
+						"playlists",
+						":playlistId",
+						"tracks",
+						":trackId"
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "db8899e8-f4c2-47bf-aaaf-e7f3228a97c4"
+						},
+						{
+							"key": "trackId",
+							"value": "54598faa-b0f8-496e-90bd-eb8e9a05918d"
+						}
+					]
+				},
+				"description": "### Descrição:\nEsta requisição serve para deletar alguma música de alguma playlist\n\n### Input:\n**Headers**\n<br/>`Authorization`: token de autenticação da API\n```\n\tAuthorization: \"nome-sobrenome-turma\"\n```\n\n**Path Params**\n<br/>`playlistId`: id da playlist (obrigatório)\n<br/>`trackId`: id da música (obrigatório)\n"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
